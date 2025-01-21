@@ -21,7 +21,7 @@ export const Navbar = ({ hasSubvisualIcon }: NavbarProps) => {
         px: 4
       }}
     >
-      {hasSubvisualIcon ? <SubvisualLogo sx={{ height: 48, width: 48 }} /> : null}
+      {hasSubvisualIcon && <SubvisualLogo sx={{ height: 48, width: 48 }} />}
       <Stack sx={{ flexDirection: "row", alignItems: "center", gap: 2 }}>
         <IconButton size="sm">
           <NotificationsOutlined sx={{ height: 18, width: 18 }} />

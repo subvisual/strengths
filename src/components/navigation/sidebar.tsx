@@ -64,9 +64,7 @@ export const Sidebar = () => {
                   <IconButton variant="plain" size="lg" sx={{ width: "100%", p: 1 }}>
                     <Stack sx={{ alignItems: "center", gap: 1 }}>
                       {isSelected ? item.iconSelected : item.icon}
-                      <Typography sx={{ ...(isSelected ? itemColor(true) : null), fontSize: 12 }}>
-                        {item.name}
-                      </Typography>
+                      <Typography sx={{ ...(isSelected && itemColor(true)), fontSize: 12 }}>{item.name}</Typography>
                     </Stack>
                   </IconButton>
                 </JoyLink>

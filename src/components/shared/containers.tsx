@@ -3,19 +3,28 @@ import { ReactNode } from "react";
 import { Navbar } from "../navigation/navbar";
 import { Sidebar } from "../navigation/sidebar";
 
-type ContainerProps = {
+type LayoutProps = {
   children: ReactNode;
   hasSideBar?: boolean;
 };
 
-export const Container = ({ children, hasSideBar }: ContainerProps) => {
-  return (
-    <Stack sx={{ flexDirection: "row" }}>
-      {hasSideBar ? <Sidebar /> : null}
-      <Stack sx={{ width: "100%" }}>
-        <Navbar hasSubvisualIcon={hasSideBar ? false : true} />
-        {children}
+export const Layout = ({ children, hasSideBar }: LayoutProps) => {
+  if (hasSideBar) {
+    return (
+      <Stack sx={{ flexDirection: "row" }}>
+        <Sidebar />
+        <Stack sx={{ flex: 1 }}>
+          <Navbar hasSubvisualIcon />
+          {children}
+        </Stack>
       </Stack>
+    );
+  }
+
+  return (
+    <Stack>
+      <Navbar hasSubvisualIcon />
+      {children}
     </Stack>
   );
 };
